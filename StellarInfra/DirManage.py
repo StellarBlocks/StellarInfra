@@ -150,6 +150,13 @@ def checkFolder(folderPath):
         os.makedirs(folderPath)
     return folderPath
 
+from pathlib import Path
+def checkdir(path):
+    folder = Path(path)
+    folder.mkdir(parents=True, exist_ok=True)
+    return path
+
+
 def getFileList(folder_path,extension):
     ans = [CPath(os.path.join(folder_path,file)) for file in os.listdir(folder_path) if file.endswith(extension)]
     if(len(ans)==0):
